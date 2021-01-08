@@ -14,7 +14,7 @@ private:
     wxBoxSizer *_dialogSizer;
     wxBitmap _image;
 
-    std::unique_ptr<ChatLogic> _chatLogic = std::make_unique<ChatLogic>();
+    std::unique_ptr<ChatLogic> _chatLogic;
 
 public:
     // constructor / destructor

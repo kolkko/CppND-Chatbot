@@ -19,9 +19,7 @@ ChatBot::ChatBot()
 
 // constructor WITH memory allocation
 ChatBot::ChatBot(std::string filename)
-{
-    std::cout << "ChatBot Constructor" << std::endl;
-    
+{    
     // invalidate data handles
     _chatLogic = nullptr;
     _rootNode = nullptr;
@@ -32,21 +30,17 @@ ChatBot::ChatBot(std::string filename)
 
 ChatBot::~ChatBot()
 {
-    std::cout << "ChatBot Destructor" << std::endl;
-
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
     {
-        delete _image;
         _image = NULL;
+        delete _image;
     }
 }
 
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source) 
-{
-    std::cout << "ChatBot Copy Constructor" << std::endl;
-    
+{    
     // copy data handles
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
@@ -59,7 +53,6 @@ ChatBot::ChatBot(const ChatBot &source)
 // copy assignment operator
 ChatBot &ChatBot::operator=(const ChatBot &source)
 {
-    std::cout << "ChatBot Copy Assignment Operator. ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
     if (this == &source)
         return *this;
     // copy data handles
@@ -76,7 +69,6 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
 // move constructor
 ChatBot::ChatBot(ChatBot &&source)
 {
-    std::cout << "ChatBot Move Constructor" << std::endl;
     // copy data handles
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
@@ -92,7 +84,6 @@ ChatBot::ChatBot(ChatBot &&source)
 // move assignment operator
 ChatBot &ChatBot::operator=(ChatBot &&source)
 {
-    std::cout << "ChatBot Move Assignment Operator. MOVING content of instance " << &source << " to instance " << this << std::endl;
     if(this == &source)
         return *this;
     
